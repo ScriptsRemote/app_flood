@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 import plotly.express as px
 import geopandas as gpd
 import pandas as pd
-import mapclassify
+# import mapclassify
 import json 
 import matplotlib.pyplot as plt 
 import geemap.foliumap as geemap
