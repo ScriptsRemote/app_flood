@@ -1,8 +1,9 @@
-import streamlit as st 
+import ee
 import geemap
-
-
-m=geemap.Map()
+import geemap.foliumap as geemap
+import streamlit as st
+import streamlit_folium
+from streamlit_folium import st_folium
 
 st.sidebar.markdown('Desenvolvido por [AmbGEO]("https://ambgeo.com/")')
 st.sidebar.image('asset/logo_ambgeo.png')
