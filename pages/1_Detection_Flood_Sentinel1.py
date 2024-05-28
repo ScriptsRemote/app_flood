@@ -1,5 +1,7 @@
 ##App Delimitação de manchas de inundação 
+
 import geemap
+import geemap.foliumap as geemap
 import ee
 import streamlit as st 
 import folium
@@ -11,11 +13,11 @@ import pandas as pd
 # import mapclassify
 import json 
 import matplotlib.pyplot as plt 
-import geemap.foliumap as geemap
-from palette_biome import paleta_cores
-from palette_biome import paleta_nomes
-from palette_biome import dicionario_classes
-from palette_biome import dicionario_cores
+
+# from palette_biome import paleta_cores
+# from palette_biome import paleta_nomes
+# from palette_biome import dicionario_classes
+# from palette_biome import dicionario_cores
 import os 
 
 ##Titulo da aplicação 
@@ -28,7 +30,7 @@ st.divider()
 st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 1 utilizada na delimitação da cheia por meio de limiar e segmentação.""")
 
 
-Map = geemap.Map()
+Map = geemap.Map(heigth=800)
 
 # Função para converter em valores naturais
 def toNatural(image):
@@ -58,10 +60,10 @@ def process_flood_detection(point, start_date, end_date):
     Map.addLayer(s1Image, {'min': 0, 'max': 0.2, 'bands': 'VH'}, 'Sentinel-1 VH', False)
     Map.addLayer(flood_mask, {'palette': ['blue'], 'opacity': 0.5}, 'flood', False)
 
-    # Unindo pixels isolados usando morfologia matemática
-    dilated = flood_mask.focal_max(1.25, 'square', 'pixels')
-    flood_fill = dilated.focal_min(1.25, 'square', 'pixels')
-    Map.addLayer(flood_fill, {'palette': ['cyan'], 'opacity': 0.5}, 'flood fill', False)
+    # # Unindo pixels isolados usando morfologia matemática
+    # dilated = flood_mask.focal_max(1.25, 'square', 'pixels')
+    # flood_fill = dilated.focal_min(1.25, 'square', 'pixels')
+    # Map.addLayer(flood_fill, {'palette': ['cyan'], 'opacity': 0.5}, 'flood fill', False)
 
     # Obtém o conjunto de dados anual histórico do JRC
     jrc = ee.ImageCollection('JRC/GSW1_3/YearlyHistory') \
@@ -77,7 +79,7 @@ def process_flood_detection(point, start_date, end_date):
     Map.addLayer(permanentWater.selfMask(), {'palette': 'royalblue'}, 'JRC permanent water')
 
     # Encontre áreas onde não há água permanente, mas a água é observada
-    floodImage = permanentWater.Not().And(flood_fill)
+    floodImage = permanentWater.Not().And(flood_mask)
     Map.addLayer(floodImage.selfMask(), {'palette': 'firebrick'}, 'Flood areas')
 
     # Centraliza o mapa no ponto
@@ -115,7 +117,7 @@ def process_flood_detection(point, start_date, end_date):
         st.subheader('Dados da Área')
         st.dataframe(df)
 
-    return floodImage, flood_fill
+    return floodImage
 
 
 # Primeira execução para desenhar o ponto

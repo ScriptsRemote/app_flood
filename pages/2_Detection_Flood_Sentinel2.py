@@ -1,5 +1,6 @@
 ##App Delimitação de manchas de inundação 
-import geemap
+iimport geemap
+import geemap.foliumap as geemap
 import ee
 import streamlit as st 
 import folium
@@ -11,13 +12,14 @@ import pandas as pd
 # import mapclassify
 import json 
 import matplotlib.pyplot as plt 
-import geemap.foliumap as geemap
+# import geemap.foliumap as geemap
 from palette_biome import paleta_cores
 from palette_biome import paleta_nomes
 from palette_biome import dicionario_classes
 from palette_biome import dicionario_cores
 import os 
 
+m=geemap.Map(heigth=800)
 ##Titulo da aplicação 
 # Configuração da página
 st.set_page_config(layout="wide")

@@ -2,8 +2,8 @@
 
 ##Import
 import geemap
-import ee
 import geemap.foliumap as geemap
+import ee
 import streamlit as st 
 import folium
 import streamlit_folium
