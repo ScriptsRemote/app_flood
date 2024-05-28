@@ -28,9 +28,6 @@ st.divider()
 
 st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados da coleção VNP46A1: VIIRS Daily Gridded Day Night Band 500m. A partir de um sensor Day-Night Band (DNB) que fornece medições diárias globais de luz noturna visível e infravermelha próxima (NIR) que são adequadas para o sistema terrestre ciência e aplicações. """)
 
-
-
-
 dnbVis = {
   'min': 0,
   'max': 50,
@@ -57,15 +54,12 @@ zones_after = noaa_after.gt(5).add(noaa_after.gt(10)).add(noaa_after.gt(15)).add
 zones_after = zones_after.updateMask(zones_after.neq(0))
 
 
-
 #define roi and collection
 polygon = ee.Geometry.Polygon(
-        [[[-57.37914878740735, -27.001757647128635],
-          [-57.37914878740735, -32.21408265395696],
-          [-48.77685386553235, -32.21408265395696],
-          [-48.77685386553235, -27.001757647128635]]])
-
-
+        [[[-55.10912329531591, -28.605619437449654],
+          [-55.10912329531591, -30.66803438221671],
+          [-50.45092017031591, -30.66803438221671],
+          [-50.45092017031591, -28.605619437449654]]])
 
 # m.addLayer(noaa_after, dnbVis, 'After Flood')
 m.centerObject(roi,10)
