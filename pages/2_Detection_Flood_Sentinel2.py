@@ -145,7 +145,7 @@ mask_farming = lucl_2022.updateMask(mask)
 # ImagemCollection
 collection = ee.ImageCollection("COPERNICUS/S2_SR")\
                 .filterBounds(polygon)\
-                .filterDate('2024-02-20', '2025-05-11')\
+                .filterDate('2024-04-10', '2025-05-11')\
                 .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',35))\
                 .map(maskCloudAndShadowsSR)\
                 .map(index)
@@ -159,12 +159,12 @@ may = collection.filter(ee.Filter.eq('data','2024-05-06'))
 ##Convert to vector 
 flood = may.median().select('water')
 
-reduce = flood.reduceRegion(
-                    reducer=ee.Reducer.mean(),
-                    geometry=roi.geometry(),
-                    scale=30,
-                    maxPixels=1e9
-)
+# reduce = flood.reduceRegion(
+#                     reducer=ee.Reducer.mean(),
+#                     geometry=roi.geometry(),
+#                     scale=30,
+#                     maxPixels=1e9
+# )
 
 flood_fill = flood.gt(0.15).selfMask().rename('water')
 
@@ -188,7 +188,7 @@ flood_fill = flood.gt(0.15).selfMask().rename('water')
 # Map.addLayer(lucl_2022,vis,'Mapbiomas 2022',False)
 # Map.addLayer(fill,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'2023-2023 median')
 Map.add_basemap('HYBRID')
-Map.addLayer(may,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'Maio 06',False)
+# Map.addLayer(may,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'Maio 06',False)
 Map.addLayer(mask_farming,vis,'Farming')
 # Map.addLayer(mask_farming_clip,vis,'Farming Clip')
 Map.addLayer(flood_fill,{'palette':['blue'], 'min':0.10, 'max':0.54,'opacity':0.5},'Maio 06 2024')
