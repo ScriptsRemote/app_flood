@@ -28,7 +28,7 @@ st.divider()
 st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 1 utilizada na delimitação da cheia por meio de limiar e segmentação.""")
 
 
-
+Map = geemap.Map()
 
 # Função para converter em valores naturais
 def toNatural(image):
