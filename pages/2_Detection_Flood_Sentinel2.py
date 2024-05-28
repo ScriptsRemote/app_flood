@@ -1,5 +1,5 @@
 ##App Delimitação de manchas de inundação 
-iimport geemap
+import geemap
 import geemap.foliumap as geemap
 import ee
 import streamlit as st 
