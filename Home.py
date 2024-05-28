@@ -1,4 +1,8 @@
 import streamlit as st 
+import geemap
+import ee
+
+m=geemap.Map()
 
 st.sidebar.markdown('Desenvolvido por [AmbGEO]("https://ambgeo.com/")')
 st.sidebar.image('asset/logo_ambgeo.png')
