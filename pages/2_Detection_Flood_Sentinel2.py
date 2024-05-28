@@ -19,7 +19,7 @@ from palette_biome import dicionario_classes
 from palette_biome import dicionario_cores
 import os 
 
-m=geemap.Map(heigth=800)
+m=geemap.Map(height=800)
 ##Titulo da aplicação 
 # Configuração da página
 st.set_page_config(layout="wide")
@@ -75,7 +75,7 @@ with col2:
     st.dataframe(dados_filtrados)
 
 ##Login
-Map = geemap.Map()
+Map = geemap.Map(height=800)
 
 #define roi and collection
 polygon = ee.Geometry.Polygon(

@@ -5,7 +5,7 @@ import streamlit as st
 import streamlit_folium
 from streamlit_folium import st_folium
 
-m=geemap.Map(heigth=800)
+m=geemap.Map(height=800)
 
 st.sidebar.markdown('Desenvolvido por [AmbGEO]("https://ambgeo.com/")')
 st.sidebar.image('asset/logo_ambgeo.png')

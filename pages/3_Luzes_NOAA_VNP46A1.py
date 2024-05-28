@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import os 
 
 ##Login
-m = geemap.Map(heigth=800)
+m = geemap.Map(height=800)
 
 # Configuração da página
 st.set_page_config(layout="wide")
