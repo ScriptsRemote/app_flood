@@ -185,8 +185,9 @@ flood_fill = flood.gt(0.15).selfMask().rename('water')
 # mask_farming_clip =  mapbiomas.select('classification_2022').clip(vectors)
 
 # Visualization 
-Map.addLayer(lucl_2022,vis,'Mapbiomas 2022',False)
-Map.addLayer(fill,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'2023-2023 median')
+# Map.addLayer(lucl_2022,vis,'Mapbiomas 2022',False)
+# Map.addLayer(fill,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'2023-2023 median')
+Map.add_basemap('HYBRID')
 Map.addLayer(may,{'bands':['B4','B3','B2'], 'min':0.10, 'max':0.23},'Maio 06',False)
 Map.addLayer(mask_farming,vis,'Farming')
 # Map.addLayer(mask_farming_clip,vis,'Farming Clip')
