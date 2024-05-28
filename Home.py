@@ -1,6 +1,6 @@
 import streamlit as st 
 import geemap
-import ee
+
 
 m=geemap.Map()
 
