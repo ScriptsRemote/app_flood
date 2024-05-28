@@ -60,10 +60,10 @@ def process_flood_detection(point, start_date, end_date):
     Map.addLayer(s1Image, {'min': 0, 'max': 0.2, 'bands': 'VH'}, 'Sentinel-1 VH', False)
     Map.addLayer(flood_mask, {'palette': ['blue'], 'opacity': 0.5}, 'flood', False)
 
-    # # Unindo pixels isolados usando morfologia matemática
-    # dilated = flood_mask.focal_max(1.25, 'square', 'pixels')
-    # flood_fill = dilated.focal_min(1.25, 'square', 'pixels')
-    # Map.addLayer(flood_fill, {'palette': ['cyan'], 'opacity': 0.5}, 'flood fill', False)
+    # Unindo pixels isolados usando morfologia matemática
+    dilated = flood_mask.focal_max(1.25, 'square', 'pixels')
+    flood_fill = dilated.focal_min(1.25, 'square', 'pixels')
+    Map.addLayer(flood_fill, {'palette': ['cyan'], 'opacity': 0.5}, 'flood fill', False)
 
     # Obtém o conjunto de dados anual histórico do JRC
     jrc = ee.ImageCollection('JRC/GSW1_3/YearlyHistory') \
@@ -79,7 +79,7 @@ def process_flood_detection(point, start_date, end_date):
     Map.addLayer(permanentWater.selfMask(), {'palette': 'royalblue'}, 'JRC permanent water')
 
     # Encontre áreas onde não há água permanente, mas a água é observada
-    floodImage = permanentWater.Not().And(flood_mask)
+    floodImage = permanentWater.Not().And(flood_fill)
     Map.addLayer(floodImage.selfMask(), {'palette': 'firebrick'}, 'Flood areas')
 
     # Centraliza o mapa no ponto
@@ -117,7 +117,7 @@ def process_flood_detection(point, start_date, end_date):
         st.subheader('Dados da Área')
         st.dataframe(df)
 
-    return floodImage
+    return floodImage, flood_fill
 
 
 # Primeira execução para desenhar o ponto
