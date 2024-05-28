@@ -3,6 +3,7 @@
 ##Import
 import geemap
 import ee
+import geemap.foliumap as geemap
 import streamlit as st 
 import folium
 import streamlit_folium
@@ -13,8 +14,10 @@ import pandas as pd
 # import mapclassify
 import json 
 import matplotlib.pyplot as plt 
-import geemap.foliumap as geemap
 import os 
+
+##Login
+m = geemap.Map(heigth=800)
 
 # Configuração da página
 st.set_page_config(layout="wide")
@@ -26,8 +29,7 @@ st.divider()
 st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados da coleção VNP46A1: VIIRS Daily Gridded Day Night Band 500m. A partir de um sensor Day-Night Band (DNB) que fornece medições diárias globais de luz noturna visível e infravermelha próxima (NIR) que são adequadas para o sistema terrestre ciência e aplicações. """)
 
 
-##Login
-m = geemap.Map(heigth=800)
+
 
 dnbVis = {
   'min': 0,
