@@ -93,8 +93,8 @@ Map.to_streamlit()
 # Calcula a área de floodImage e permanentWater
 # Calcula a área de floodImage e permanentWater
 
-area_floodImage = ee.Number(flood_mask.multiply(ee.Image.pixelArea()).reduceRegion(reducer=ee.Reducer.sum(), geometry=st.session_state.point.buffer(100000), maxPixels=1e13,scale=100).get("water")).getInfo()
-area_permanentWater = ee.Number(permanentWater.multiply(ee.Image.pixelArea()).reduceRegion(reducer=ee.Reducer.sum(), geometry=st.session_state.point.buffer(100000),maxPixels=1e13, scale=100).get("waterClass")).getInfo()
+area_floodImage = ee.Number(flood_mask.multiply(ee.Image.pixelArea()).reduceRegion(reducer=ee.Reducer.sum(), geometry=point.buffer(100000), maxPixels=1e13,scale=100).get("water")).getInfo()
+area_permanentWater = ee.Number(permanentWater.multiply(ee.Image.pixelArea()).reduceRegion(reducer=ee.Reducer.sum(), geometry=point.buffer(100000),maxPixels=1e13, scale=100).get("waterClass")).getInfo()
 
 # Arredonda os valores para duas casas decimais
 area_floodImage = round(area_floodImage / 1e6, 2)  # Convertendo de metros quadrados para quilômetros quadrados
