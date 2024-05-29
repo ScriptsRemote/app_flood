@@ -8,7 +8,7 @@ import os
 import json
 
 
-json_data = st.secrets["json_data"]
+json_data = st.secrets["json_data"] 
 service_account = st.secrets["service_account"]
 
 # Preparing values

@@ -29,7 +29,7 @@ st.divider()
 
 st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 1 utilizada na delimitação da cheia por meio de limiar e segmentação.""")
 
-
+ 
 json_data = st.secrets["json_data"]
 service_account = st.secrets["service_account"]
 

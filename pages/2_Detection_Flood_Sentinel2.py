@@ -13,7 +13,7 @@ import pandas as pd
 import json 
 import matplotlib.pyplot as plt 
 # import geemap.foliumap as geemap
-from palette_biome import paleta_cores
+from palette_biome import paleta_cores 
 from palette_biome import paleta_nomes
 from palette_biome import dicionario_classes
 from palette_biome import dicionario_cores

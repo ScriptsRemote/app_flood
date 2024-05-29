@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import os 
 
 json_data = st.secrets["json_data"]
-service_account = st.secrets["service_account"]
+service_account = st.secrets["service_account"] 
 
 # Preparing values
 json_object = json.loads(json_data, strict=False)
