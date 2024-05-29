@@ -1,5 +1,4 @@
 ##App to visulize NOAA VIRS Night
-
 ##Import
 import geemap
 import geemap.foliumap as geemap
@@ -16,10 +15,16 @@ import json
 import matplotlib.pyplot as plt 
 import os 
 
-@st.cache_data
-def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
-    geemap.ee_initialize(token_name=token_name)
+json_data = st.secrets["json_data"]
+service_account = st.secrets["service_account"]
 
+# Preparing values
+json_object = json.loads(json_data, strict=False)
+service_account = json_object['client_email']
+json_object = json.dumps(json_object)
+# Authorising the app
+credentials = ee.ServiceAccountCredentials(service_account, key_data=json_object)
+ee.Initialize(credentials)
 ##Login
 m = geemap.Map(height=800)
 
