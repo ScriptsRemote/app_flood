@@ -5,14 +5,19 @@ import streamlit as st
 import streamlit_folium
 from streamlit_folium import st_folium
 import os
+import json
 
 
 # @st.cache_data
 # def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
 #     geemap.ee_initialize(token_name=token_name)
-user = st.secrets["username"]
+# Preparing values
+json_data = st.secrets["json_data"]
+json_object = json.loads(json_data, strict=False)
+service_account = json_object['project_id']
+# json_object = json.dumps(json_object)
 
-ee.Initialize(project=user)
+ee.Initialize(project=service_account)
 
 # m=geemap.Map(height=800)
 
