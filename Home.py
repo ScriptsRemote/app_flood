@@ -10,7 +10,7 @@ import os
 # @st.cache_data
 # def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
 #     geemap.ee_initialize(token_name=token_name)
-user = st.secrets["username"])
+user = st.secrets["username"]
 
 ee.Initialize(project=user)
 
