@@ -5,9 +5,11 @@ import streamlit as st
 import streamlit_folium
 from streamlit_folium import st_folium
 
-@st.cache_data
-def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
-    geemap.ee_initialize(token_name=token_name)
+# @st.cache_data
+# def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+#     geemap.ee_initialize(token_name=token_name)
+
+ee.Initialize(project=st.secrets.db_credentials.username)
 
 m=geemap.Map(height=800)
 
