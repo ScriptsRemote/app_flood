@@ -13,8 +13,8 @@ service_account = 'my-service-account@...gserviceaccount.com'
 credentials = ee.ServiceAccountCredentials(service_account, 'ee-scriptsremoteambgeo-040e397e0cc0.json')
 ee.Initialize(credentials)
 
-m=geemap.Map(height=800)
-m
+# m=geemap.Map(height=800)
+# m
 
 st.sidebar.markdown('Desenvolvido por [AmbGEO]("https://ambgeo.com/")')
 st.sidebar.image('asset/logo_ambgeo.png')
