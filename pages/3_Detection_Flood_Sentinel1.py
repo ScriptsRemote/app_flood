@@ -148,27 +148,28 @@ if st.sidebar.button('Atualizar Localização e Datas'):
     except ValueError:
         st.sidebar.error("Por favor, insira valores válidos para latitude e longitude.")
 
-# if st.session_state.point:
-#     floodImage, flood_mask = process_flood_detection(st.session_state.point, st.session_state.start_date, st.session_state.end_date)
+if st.session_state.point:
+    floodImage, flood_mask = process_flood_detection(st.session_state.point, st.session_state.start_date, st.session_state.end_date)
 
-#     # Adicionar botão de download
-#     if st.sidebar.button("Download das Imagens"):
-#         out_dir = os.path.join(os.path.expanduser('~'), 'Downloads')
+    # # Adicionar botão de download
+    # if st.sidebar.button("Download das Imagens"):
+    #     out_dir = os.path.join(os.path.expanduser('~'), 'Downloads')
         
-#         # Exportar imagens
-#         download_path_floodImage = os.path.join(out_dir, 'floodImage.tif')
-#         download_path_flood_fill = os.path.join(out_dir, 'flood_fill.tif')
+    #     # Exportar imagens
+    #     download_path_floodImage = os.path.join(out_dir, 'floodImage.tif')
+    #     download_path_flood_fill = os.path.join(out_dir, 'flood_fill.tif')
         
-#         geemap.ee_export_image(floodImage, filename=download_path_floodImage, scale=10, region=st.session_state.point.buffer(10000).bounds()) 
-#         geemap.ee_export_image(flood_mask, filename=download_path_flood_fill, scale=10, region=st.session_state.point.buffer(10000).bounds())
+    #     geemap.ee_export_image(floodImage, filename=download_path_floodImage, scale=10, region=st.session_state.point.buffer(10000).bounds()) 
+    #     geemap.ee_export_image(flood_mask, filename=download_path_flood_fill, scale=10, region=st.session_state.point.buffer(10000).bounds())
 
-#         # Verificar se os arquivos existem antes de adicionar os links de download
-#         if os.path.exists(download_path_floodImage) and os.path.exists(download_path_flood_fill):
-#             st.sidebar.success("Download realizado com sucesso.")
-#         else:
-#             st.sidebar.error("Erro durante a exportação. Os arquivos não foram criados.")
-# else:
-#     st.write("Insira a latitude, a longitude e as datas, depois clique em 'Atualizar Localização e Datas'.")
+    #     # Verificar se os arquivos existem antes de adicionar os links de download
+    #     if os.path.exists(download_path_floodImage) and os.path.exists(download_path_flood_fill):
+    #         st.sidebar.success("Download realizado com sucesso.")
+    #     else:
+    #         st.sidebar.error("Erro durante a exportação. Os arquivos não foram criados.")
+else:
+    st.subheader('Atualize os dados e clique no botão para executar o app.')
+    st.write("Insira a latitude, a longitude e as datas, depois clique em 'Atualizar Localização e Datas'.")
 
 
 st.sidebar.markdown('Desenvolvido por [AmbGEO](https://ambgeo.com/)')
