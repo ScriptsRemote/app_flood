@@ -19,6 +19,10 @@ from palette_biome import dicionario_classes
 from palette_biome import dicionario_cores
 import os 
 
+@st.cache_data
+def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+    geemap.ee_initialize(token_name=token_name)
+
 m=geemap.Map(height=800)
 ##Titulo da aplicação 
 # Configuração da página

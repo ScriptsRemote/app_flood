@@ -16,6 +16,10 @@ import json
 import matplotlib.pyplot as plt 
 import os 
 
+@st.cache_data
+def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+    geemap.ee_initialize(token_name=token_name)
+
 ##Login
 m = geemap.Map(height=800)
 
