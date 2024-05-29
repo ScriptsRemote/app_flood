@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 # def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
 #     geemap.ee_initialize(token_name=token_name)
 
-ee.Initialize(project=st.secrets.db_credentials.username)
+ee.Initialize(project=st.secrets.username)
 
 m=geemap.Map(height=800)
 
