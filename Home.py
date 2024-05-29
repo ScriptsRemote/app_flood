@@ -8,16 +8,9 @@ import os
 import json
 
 
-# @st.cache_data
-# def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
-#     geemap.ee_initialize(token_name=token_name)
-# Preparing values
-json_data = st.secrets["json_data"]
-json_object = json.loads(json_data, strict=False)
-service_account = json_object['project_id']
-# json_object = json.dumps(json_object)
-
-ee.Initialize(project=service_account)
+@st.cache_data
+def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+    geemap.ee_initialize(token_name=token_name)
 
 # m=geemap.Map(height=800)
 
