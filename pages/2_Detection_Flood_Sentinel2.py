@@ -119,17 +119,17 @@ def index(image):
 
 
 # Selection dataset mapbiomas 
-mapbiomas = ee.Image('projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1')
+mapbiomas = ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1')
 palettes = list(paleta_cores.values())
 
 # Define palette visualition
 vis = {
   'palette':palettes,
   'min':0,
-  'max':62
+  'max':69
 }
 # Selection year 2022
-lucl_2022= mapbiomas.select('classification_2022').clip(roi)
+lucl_2022= mapbiomas.select('classification_2023').clip(roi)
 
 
 # Select agriculture areas 
