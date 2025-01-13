@@ -21,11 +21,11 @@ st.sidebar.image('asset/logo_ambgeo.png')
 
 ##Introdução
 st.image('asset/logo_ambgeo.png')
-st.markdown('# Aplicações para análise e interpretação das Cheias ocorridas em maio de 2024 no Rio Grande do Sul')
+st.markdown('# Aplicações para análise e interpretação das inundações ocorridas entre abril e maio de 2024 no Rio Grande do Sul')
 st.divider()
 
 ##Contexto
 st.markdown("""
-    Este Dashboard tem como objetivo permitir que os usuário consigam visualizar, interpretar e analisar os impactos das cheias ocorridas em maio de 2024 no Rio Grande do Sul, Brasil, a partir imagens de diferentes sistemas sensores.
+    Este Dashboard tem como objetivo permitir que os usuário consigam visualizar, interpretar e analisar os impactos das inundações ocorridas entre abril e maio de 2024 no Rio Grande do Sul, Brasil, a partir imagens de diferentes sistemas sensores.
     O processamento das informações foi realizado via Google Earth Engine e a partir da integração com bibliotecas Python.
             """)
