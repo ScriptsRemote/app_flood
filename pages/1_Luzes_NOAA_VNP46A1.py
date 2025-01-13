@@ -109,12 +109,12 @@ data = {'Período': ['Pré', 'Pós'],
 df = pd.DataFrame(data)
 
 # Exibe os dados de área na barra lateral
-st.sidebar.markdown(f'''Área luminosa antes da cheia (km²) era de {area_before}. Após a cheia, a área luminosa foi reduzida a {area_after} km².''')
+st.sidebar.markdown(f'''Área luminosa antes da inundação (km²) era de {area_before}. Após a inundação, a área luminosa foi reduzida a {area_after} km².''')
 
 # Cria um gráfico de barras com Plotly
 fig = px.bar(df, x='Período', y='Área (km²)', color='Período',
              color_discrete_map={'Pré': 'gray', 'Pós': 'darkgray'},
-             title='Comparação de Área Antes e Depois da Cheia',
+             title='Comparação de Área Antes e Depois da Inundação',
              labels={'Área (km²)': 'Área (km²)', 'Período': 'Período'})
 
 fig.update_layout(legend_title_text='Período')
