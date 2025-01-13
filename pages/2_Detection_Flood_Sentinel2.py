@@ -29,10 +29,10 @@ m=geemap.Map(height=800)
 # Configuração da página
 st.set_page_config(layout="wide")
 
-st.title('Delimitação das Cheias - FLOOD POA')
+st.title('Delimitação das Inundações - FLOOD POA')
 st.divider()
 
-st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 2 utilizada na delimitação da cheia por meio de índices de água. 
+st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 2 utilizada na delimitação das Inundações por meio de índices de água. 
                     Nesta mesma aplicação é possível analisar a sobreposição dos dados de uso e cobertura do solo de áreas agrículas oriundos do MapBiomas (coleção 8).""")
 
 
