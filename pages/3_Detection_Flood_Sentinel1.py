@@ -24,10 +24,10 @@ import os
 # Configuração da página
 st.set_page_config(layout="wide")
 
-st.title('Detecção de Cheias - FLOOD SELECT')
+st.title('Detecção de Inundações - FLOOD SELECT')
 st.divider()
 
-st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 1 utilizada na delimitação da cheia por meio de limiar e segmentação.""")
+st.sidebar.markdown("""Esta aplicação desenvolvida para visualização dos dados do Sentinel 1 utilizada na delimitação da Inundação por meio de limiar e segmentação.""")
 
 ##linha de código para autenticação
 service_account = 'my-service-account@...gserviceaccount.com'
