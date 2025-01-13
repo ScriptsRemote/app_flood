@@ -126,7 +126,7 @@ palettes = list(paleta_cores.values())
 vis = {
   'palette':palettes,
   'min':0,
-  'max':69
+  'max':62
 }
 # Selection year 2022
 lucl_2022= mapbiomas.select('classification_2023').clip(roi)
